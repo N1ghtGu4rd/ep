@@ -1,28 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <title>Train To Win®</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lato', sans-serif;
+        }
+
+        header {
+            background-color: #1c2331;
+            /* Azul oscuro de intensidad media y sucio */
+            color: #fff;
+            /* Texto en color blanco para contrastar */
+            padding: 10px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 0% 100%);
+            /* Forma rectangular con caída en la parte inferior */
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-container img {
+            width: 20%;
+        }
+
+        menu {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        menu a {
+            text-decoration: none;
+            margin: 0 20px;
+            color: #fff;
+            /* Texto en color blanco para contrastar con el fondo azul oscuro */
+        }
+
+        /* menu a:hover{
+            background-color: #1d2853;
+            font-size: 120%;
+            border-radius: 5px;
+        } */
+
+        menu a:hover {
+            background-color: #1d2853;
+            font-size: 120%;
+            border-radius: 5px;
+            padding: 12px 20px;
+            /* Ajusta el padding para que el fondo sea más grande */
+            transition: padding 0.1s;
+            /* Agrega una transición para hacer el cambio suave */
+        }
+
+
+        .div1, .div2, .div3, .div4 {
+            /* Estilos para tus divisiones adicionales (puedes personalizar según necesites) */
+            height: 200px;
+            background-color: #f0f0f0;
+            margin: 10px;
+        }
+
+        footer {
+            /* Estilos para el pie de página (puedes personalizar según necesites) */
+            background-color: #1c2331;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <img src="img/Logo1.png" alt="">
+        <div class="header-container">
+            <img src="img/Logo1.png">
+            <menu>
+                <a href="#Inicio">Inicio</a>
+                <a href="#Servicios">Servicios</a>
+                <a href="#About">Sobre nosotros</a>
+                <a href="#Contacto">Contacto</a>    
+            </menu>
+        </div>
     </header>
-    <div class="div1">
-
+    <div class="div1" id="Inicio">
+        <h2>Inicio</h2>
     </div>
-    <div class="div2">
-
+    <div class="div2" id="Servicios">
+        <h2>Servicios</h2>
     </div>
-    <div class="div3">
-
+    <div class="div3" id="About">
+        <h2>Sobre Nosotros</h2>
     </div>
-    <div class="div4">
-
+    <div class="div4" id="Contacto">
+        <h2>Contacto</h2>
     </div>
     <footer>
-
+        © 2024 Train To Win® - Todos los derechos reservados
     </footer>
 </body>
+
 </html>
