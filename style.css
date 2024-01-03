@@ -147,6 +147,34 @@ footer {
     padding: 10px;
 }
 
+/* Estilo de los enlaces en el footer */
+.footer-links a {
+    color: #fff; /* Color del texto del enlace */
+    text-decoration: none; /* Sin subrayado */
+    margin: 0 10px; /* Margen entre enlaces */
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón sobre el enlace */
+}
+
+/* Estilo de los iconos en el footer */
+.footer-icons a {
+    color: #fff; /* Color del icono */
+    text-decoration: none; /* Sin subrayado */
+    margin: 0 10px; /* Margen entre iconos */
+}
+
+/* Estilo del párrafo del copyright */
+footer p {
+    margin-top: 10px; /* Margen superior del párrafo */
+    font-size: 14px; /* Tamaño de fuente del párrafo */
+}
+
+/* Estilo de los iconos de redes sociales */
+.fab {
+    font-size: 20px; /* Tamaño de fuente de los iconos */
+}
 
 /* Paralax con porcentajes */
 
