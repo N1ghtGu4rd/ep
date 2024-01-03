@@ -2,13 +2,12 @@ body {
     font-family: 'Lato', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
     color: #333;
     text-align: center;
-    height: 100%;
 }
 
 header {
+    position: relative;
     background-color: #1c2331;
     /* Azul oscuro de intensidad media y sucio */
     color: #fff;
@@ -25,7 +24,7 @@ header {
 }
 
 .header-container img {
-    width: 20%;
+    width: 18%;
 }
 
 menu {
@@ -59,7 +58,10 @@ menu a:hover {
     /* Centra horizontalmente con márgenes automáticos */
     text-align: justify;
     width: 70%;
+    border-radius: 5px;
+    border-style: dotted;
 }
+
 .div1 h1 {
     font-size: 36px;
     margin-bottom: 20px;
@@ -76,15 +78,6 @@ menu a:hover {
     text-decoration: none;
 }
 
-body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    color: #333;
-    text-align: center;
-}
-
 form {
     max-width: 400px;
     margin: 20px auto;
@@ -97,7 +90,8 @@ form {
 label {
     display: block;
     margin-bottom: 8px;
-    color: #1c2331; /* Cambiado a un tono oscuro que combina con tu estilo */
+    color: #1c2331;
+    /* Cambiado a un tono oscuro que combina con tu estilo */
 }
 
 input,
@@ -117,7 +111,8 @@ textarea:focus {
 }
 
 button {
-    background-color: #1c2331; /* Cambiado a un tono oscuro que combina con tu estilo */
+    background-color: #1c2331;
+    /* Cambiado a un tono oscuro que combina con tu estilo */
     color: #fff;
     padding: 10px 15px;
     border: none;
@@ -127,7 +122,8 @@ button {
 }
 
 button:hover {
-    background-color: #4caf50; /* Cambiado a un tono verde que combina con tu estilo */
+    background-color: #4caf50;
+    /* Cambiado a un tono verde que combina con tu estilo */
 }
 
 button:disabled {
@@ -153,24 +149,40 @@ footer {
 
 
 /* Paralax con porcentajes */
- 
-  .parallax {
+
+.parallax {
     /* The image used */
     background-image: url("img/pesomuerto.jpg");
-  
+
     /* Full height */
-    height: 100%;
-  
+    height: 25vh;
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-  }
+}
+
+.parallax1 {
+    /* The image used */
+    background-image: url("img/bros.jpg");
+
+    /* Full height */
+    height: 25vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
 @media only screen and (max-device-width: 1366px) {
-    .parallax {
-      background-attachment: scroll;
+
+    .parallax,
+    .parallax1 {
+        background-attachment: scroll;
     }
-  }
+}
