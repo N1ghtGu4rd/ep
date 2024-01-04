@@ -50,6 +50,23 @@ menu a:hover {
     /* Agrega una transición para hacer el cambio suave */
 }
 
+#btnScrollToTop {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#btnScrollToTop:hover {
+    background-color: #0056b3;
+}
+
 
 .div1,
 .div2,
