@@ -27,20 +27,20 @@ header {
     width: 18%;
 }
 
-menu {
+menu.main-menu {
     display: flex;
     margin-right: 20px;
     font-size: 115%%;
 }
 
-menu a {
+menu.main-menu a {
     text-decoration: none;
     margin: 0 20px;
     color: #fff;
     /* Texto en color blanco para contrastar con el fondo azul oscuro */
 }
 
-menu a:hover {
+menu.main-menu a:hover {
     background-color: #1d2853;
     font-size: 120%;
     border-radius: 5px;
@@ -165,7 +165,7 @@ button:disabled {
     margin-bottom: 10px;
 }
 
-.a1 i{
+.a1 i {
     font-style: bold;
 }
 
@@ -179,31 +179,41 @@ footer {
 
 /* Estilo de los enlaces en el footer */
 .footer-links a {
-    color: #fff; /* Color del texto del enlace */
-    text-decoration: none; /* Sin subrayado */
-    margin: 0 10px; /* Margen entre enlaces */
+    color: #fff;
+    /* Color del texto del enlace */
+    text-decoration: none;
+    /* Sin subrayado */
+    margin: 0 10px;
+    /* Margen entre enlaces */
 }
 
 .footer-links a:hover {
-    text-decoration: underline; /* Subrayado al pasar el ratón sobre el enlace */
+    text-decoration: underline;
+    /* Subrayado al pasar el ratón sobre el enlace */
 }
 
 /* Estilo de los iconos en el footer */
 .footer-icons a {
-    color: #fff; /* Color del icono */
-    text-decoration: none; /* Sin subrayado */
-    margin: 0 10px; /* Margen entre iconos */
+    color: #fff;
+    /* Color del icono */
+    text-decoration: none;
+    /* Sin subrayado */
+    margin: 0 10px;
+    /* Margen entre iconos */
 }
 
 /* Estilo del párrafo del copyright */
 footer p {
-    margin-top: 10px; /* Margen superior del párrafo */
-    font-size: 14px; /* Tamaño de fuente del párrafo */
+    margin-top: 10px;
+    /* Margen superior del párrafo */
+    font-size: 14px;
+    /* Tamaño de fuente del párrafo */
 }
 
 /* Estilo de los iconos de redes sociales */
 .fab {
-    font-size: 20px; /* Tamaño de fuente de los iconos */
+    font-size: 20px;
+    /* Tamaño de fuente de los iconos */
 }
 
 /* Paralax con porcentajes */
@@ -236,7 +246,20 @@ footer p {
     background-size: cover;
 }
 
+@media screen and (min-width: 600px) {
+    #btnScrollToTop {
+       display: block;
+    }
+   }
+
+@media screen and (max-width: 600px) {
+    .main-menu {
+        display: none;
+    }
+}
+
 /* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+
 @media only screen and (max-device-width: 1366px) {
 
     .parallax,
