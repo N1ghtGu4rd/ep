@@ -133,7 +133,8 @@
     <br>
     <div class="div4" id="Contacto">
         <h1 style="text-align: center;">Contacto</h1>
-        <form id="contactForm" action="procesar_form.php" method="post">
+        <form action="https://formspree.io/f/xgegvgde"
+        method="POST">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
             <br>
@@ -141,33 +142,12 @@
             <input type="email" id="email" name="email" required>
             <br>
             <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+            <textarea id="mensaje" name="message" rows="4" required></textarea>
             <br>
             <button type="button" onclick="limpiarFormulario()">Limpiar</button>
-            <button type="button" onclick="enviarFormulario()">Enviar</button>
+            <button type="submit" onclick="enviarFormulario()">Enviar</button>
         </form>
 
-        <script>
-            function limpiarFormulario() {
-                document.getElementById("contactForm").reset();
-            }
-
-            function enviarFormulario() {
-                var nombre = document.getElementById("nombre").value;
-                var email = document.getElementById("email").value;
-                var mensaje = document.getElementById("mensaje").value;
-
-                // Validar campos antes de enviar
-                if (nombre === "" || email === "" || mensaje === "") {
-                    alert("Por favor, complete todos los campos antes de enviar el formulario.");
-                } else {
-                    // Aquí iría el código para enviar el formulario (puede ser una petición AJAX, etc.)
-                    alert("Formulario enviado con éxito!");
-                    // Puedes resetear el formulario después de enviar si es necesario
-                    limpiarFormulario();
-                }
-            }
-        </script>
         <div class="a1">
             <h2 style="text-align: center;">Otros contactos:</h2>
             <a href="mailto:info.roberto.fitness@gmail.com"><i class="fa-regular fa-envelope"></i> info.roberto.fitness@gmail.com</a><br>
