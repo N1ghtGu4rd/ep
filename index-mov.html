@@ -1,11 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #scrollToTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            z-index: 999;
+        }
+    </style>
+    <title>Train To Win</title>
 </head>
+
 <body>
-    
+
+    <header class="bg-dark text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="img/logo1.png" alt="Train To Win" class="img-fluid mx-auto">
+                </div>
+                <div class="col-md-9">
+                    <nav class="navbar navbar-expand-md navbar-dark">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#about">Sobre Nosotros</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="py-5">
+        <div class="container text-center">
+            <h1 class="display-4">Bienvenido a Train To Win</h1>
+            <p class="lead">Descubre tu potencial y alcanza tus metas fitness con nuestro entrenamiento personalizado.
+            </p>
+        </div>
+    </section>
+
+    <section id="servicios" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="display-4">Nuestros Servicios</h2>
+            <p class="lead">Ofrecemos una variedad de programas de entrenamiento para satisfacer tus necesidades.</p>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="font-weight-bold">Entrenamiento Personalizado</div>
+                        Entrenamientos personalizados en Train To Win para superar límites y descubrir tu verdadero
+                        potencial.
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="font-weight-bold">Preparación de Oposiciones Físicas</div>
+                        Prepárate para oposiciones con nuestro plan de entrenamiento personalizado para superar los
+                        desafíos físicos con éxito.
+                    </div>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto">
+                        <div class="font-weight-bold">Asesoramiento Online con Seguimiento Semanal Opcional</div>
+                        Asesoramiento online flexible y seguimiento semanal en Train To Win. Recibe planes de
+                        entrenamiento y motivación personalizados desde cualquier lugar.
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="about" class="py-5">
+        <div class="container text-center">
+            <h1 class="display-4">Sobre Nosotros</h1>
+            <p class="lead">Roberto Del Brío, entrenador personal en Train To Win, especializado en oposiciones físicas,
+                brinda un enfoque integral para el bienestar físico.
+            </p>
+        </div>
+    </section>
+
+    <section id="contacto" class="bg-light py-5">
+        <div class="container text-center">
+            <h2 class="display-4">Contacto</h2>
+            <form id="contactForm">
+                <!-- Campo de Nombre -->
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+
+                <!-- Campo de Correo Electrónico -->
+                <div class="form-group">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+
+                <!-- Textarea -->
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+
+                <!-- Botones de Envío y Limpiar -->
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">Limpiar</button>
+            </form>
+            <!-- <p class="lead">Ofrecemos una variedad de programas de entrenamiento para satisfacer tus necesidades.</p> -->
+            <!-- Agrega más contenido sobre servicios aquí -->
+        </div>
+    </section>
+
+    <!-- Botón flotante -->
+    <div id="scrollToTopBtn" class="btn btn-primary" onclick="scrollToTop()">Subir</div>
+
+
+    <!-- Agrega más secciones según tus necesidades -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 Train To Win. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        // Función para limpiar el formulario
+        function limpiarFormulario() {
+            document.getElementById("contactForm").reset();
+        }
+    </script>
+    <script>
+        // Función para desplazamiento suave hacia la parte superior de la página
+        function scrollToTop() {
+            // Obtenemos la posición actual del scroll
+            var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+
+            // Si ya estamos en la parte superior, no hacemos nada
+            if (currentPosition > 0) {
+                // Animación de desplazamiento suave
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, currentPosition - currentPosition / 8);
+            }
+        }
+
+        // Mostrar u ocultar el botón flotante según la posición del scroll
+        window.onscroll = function () {
+            var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+            // Mostrar el botón cuando el scroll baja más de 300 píxeles
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                // Ocultar el botón cuando el scroll está en la parte superior
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+    </script>
+
+
+
+
+
 </body>
+
 </html>
