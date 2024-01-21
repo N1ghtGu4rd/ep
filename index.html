@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
-
-    <!-- Enlace al archivo index.html para dispositivos con ancho de pantalla menor o igual a 600px -->
-    <link rel="alternate" href="index-mov.html" media="screen and (max-width: 600px)">
-    
-    <!-- Enlace al archivo index.html para dispositivos con ancho de pantalla mayor a 600px -->
-    <link rel="alternate" href="index-comp.html" media="screen and (min-width: 601px)">
-    
-    <!-- Otros enlaces y estilos comunes -->
+    <title>Mi Sitio</title>
 </head>
 <body>
-    <!-- Contenido de tu sitio web -->
+
+<script>
+    // Obtener el ancho de la pantalla
+    var anchoPantalla = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+    // Seleccionar el archivo HTML según el ancho de la pantalla
+    var archivoHTML = (anchoPantalla < 600) ? 'index-mov.html' : 'index-comp.html';
+
+    // Cargar dinámicamente el archivo HTML
+    window.location.href = archivoHTML;
+</script>
+
 </body>
 </html>
