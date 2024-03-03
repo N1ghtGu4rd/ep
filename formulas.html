@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,11 +7,15 @@
     <title>Train To Win®</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-...." crossorigin="anonymous" />
     <style>
-        /* Style the buttons that are used to open and close the accordion panel */
+        /* Estilos de los botones de acordeón */
         .accordion {
-            background-color: #eee;
-            color: #444;
+            background-color: #333;
+            /* Cambia el color de fondo a azul oscuro */
+            color: #fff;
+            /* Cambia el color del texto a blanco */
             cursor: pointer;
             padding: 18px;
             width: 100%;
@@ -21,10 +25,11 @@
             transition: 0.4s;
         }
 
-        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        /* Estilos cuando se activa el botón o se pasa el ratón sobre él */
         .active,
         .accordion:hover {
-            background-color: #ccc;
+            background-color: #555;
+            /* Cambia el color de fondo al pasar el ratón sobre él */
         }
 
         .panel {
@@ -35,11 +40,13 @@
             transition: max-height 0.2s ease-out;
         }
 
+        /* Iconos de más y menos para el acordeón */
         .accordion:after {
             content: '\02795';
             /* Unicode character for "plus" sign (+) */
             font-size: 13px;
-            color: #777;
+            color: #fff;
+            /* Cambia el color del icono a blanco */
             float: right;
             margin-left: 5px;
         }
@@ -48,51 +55,273 @@
             content: "\2796";
             /* Unicode character for "minus" sign (-) */
         }
+
+        /* Espaciado inferior */
+        .mb-2 {
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Estilos para mantener el footer abajo */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+        }
     </style>
+
 </head>
 
 <body>
     <header>
-        <!-- Encabezado aquí -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Train To Win®</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-house"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-dumbbell"></i> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-address-card"></i> Sobre
+                            nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fa-solid fa-envelopes-bulk"></i> Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulas.html"><i class="fa-solid fa-calculator"></i> Calculadoras</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main class="container mt-5">
         <button class="accordion btn btn-light">Calcula tu 1RM</button>
         <div class="panel">
-            <label for="peso">Peso levantado (kg):</label>
-            <input type="number" id="peso" min="0" class="form-control mb-2">
-            <label for="repeticiones">Número de repeticiones:</label>
-            <input type="number" id="repeticiones" min="0" class="form-control mb-2">
-            <button onclick="calcular1RM()" class="btn btn-primary">Calcular</button>
-            <div id="resultado1RMContainer" class="mt-3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center mb-4">
+                        <h2>¿Por qué calcular tu 1RM?</h2>
+                        <p class="lead">Calcular tu 1RM (Repetición Máxima) te permite conocer tu fuerza máxima en un
+                            ejercicio específico. Esto es crucial para establecer programas de entrenamiento efectivos y
+                            medir tu progreso con el tiempo.</p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h3>Aspectos a considerar:</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Importancia de la fuerza:</strong> La fuerza es fundamental para el rendimiento
+                                físico y la salud muscular.</li>
+                            <li><strong>Medición de la fuerza:</strong> La 1RM se calcula utilizando el peso levantado y
+                                el número de repeticiones realizadas en un ejercicio.</li>
+                            <li><strong>Objetivos de entrenamiento:</strong> Conocer tu 1RM te permite personalizar tu
+                                entrenamiento según tus objetivos específicos, ya sea fuerza, hipertrofia o resistencia.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="peso">Peso levantado (kg):</label>
+                    <input type="number" id="peso" min="0" step="0.01" class="form-control mb-2" placeholder="0.00">
+                    <label for="repeticiones">Número de repeticiones:</label>
+                    <input type="number" id="repeticiones" min="0" class="form-control mb-2">
+                    <button onclick="calcular1RM()" class="btn btn-primary">Calcular</button>
+                    <div id="resultado1RMContainer" class="mt-3">Tu 1RM estimada es:</div>
+                </div>
+            </div>
         </div>
 
-        <button class="accordion btn btn-light mt-3">VO2max</button>
+        <button class="accordion btn btn-light mt-3">Ritmo de Carrera</button>
         <div class="panel">
-            <label for="distancia">Distancia recorrida (km):</label>
-            <input type="number" id="distancia" min="0" class="form-control mb-2">
-            <label for="tiempo">Tiempo empleado (min):</label>
-            <input type="number" id="tiempo" min="0" class="form-control mb-2">
-            <button onclick="calcularVO2max()" class="btn btn-primary">Calcular</button>
-            <div id="resultadoVO2maxContainer" class="mt-3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center mb-4">
+                        <h2>¿Por qué calcular tu ritmo de carrera?</h2>
+                        <p class="lead">Calcular tu ritmo de carrera te permite controlar la intensidad de tus
+                            entrenamientos, mejorar tu resistencia y establecer objetivos de velocidad para carreras.
+                        </p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h3>Aspectos a considerar:</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Optimización del entrenamiento:</strong> Conocer tu ritmo de carrera te ayuda a
+                                planificar y ejecutar sesiones de entrenamiento más efectivas.</li>
+                            <li><strong>Mejora de la resistencia:</strong> Controlar tu ritmo te permite aumentar
+                                gradualmente la intensidad y la duración de tus carreras para mejorar tu resistencia.
+                            </li>
+                            <li><strong>Establecimiento de objetivos:</strong> Establecer objetivos de ritmo te ayuda a
+                                mantenerte motivado y a medir tu progreso a lo largo del tiempo.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="distancia">Distancia recorrida (km):</label>
+                    <input type="number" id="distancia" min="0" step="0.01" class="form-control mb-2" placeholder="">
+                    <label for="tiempo">Tiempo empleado (min):</label>
+                    <input type="number" id="tiempo" min="0" class="form-control mb-2" placeholder="0.0">
+                    <button onclick="calcularRitmoCarrera()" class="btn btn-primary">Calcular</button>
+                    <div id="resultadoRitmoCarreraContainer" class="mt-3">Tu ritmo de carrera es:</div>
+                </div>
+            </div>
+        </div>
+        <button class="accordion btn btn-light mt-3">Calcula tu VO2max (Test de Cooper)</button>
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center mb-4">
+                        <h2>¿Por qué calcular tu VO2max?</h2>
+                        <p class="lead">Calcular tu VO2max te proporciona una medida de tu capacidad cardiovascular y tu
+                            nivel de condición física.</p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h3>Aspectos a considerar:</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Indicador de condición física:</strong> El VO2max es un indicador clave de la
+                                capacidad aeróbica y la salud cardiovascular.</li>
+                            <li><strong>Evaluación de la capacidad aeróbica:</strong> El test de Cooper proporciona una
+                                estimación del VO2max basado en la distancia recorrida en un tiempo determinado.</li>
+                            <li><strong>Referencia para el entrenamiento:</strong> Conocer tu VO2max te ayuda a
+                                establecer metas de entrenamiento y a medir tu progreso con el tiempo.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="distanciaCooper">Distancia recorrida en 12 minutos (metros):</label>
+                    <input type="number" id="distanciaCooper" min="0" step="0.01" class="form-control mb-2"
+                        placeholder="">
+                    <button onclick="calcularVO2max()" class="btn btn-primary">Calcular</button>
+                    <div id="resultadoVO2maxContainer" class="mt-3">Tu VO2max estimado es:</div>
+                </div>
+            </div>
+        </div>
+        <button class="accordion btn btn-light mt-3">IMC (Índice de Masa Corporal)</button>
+        <div class="panel">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center mb-4">
+                        <h2>¿Por qué calcular tu IMC?</h2>
+                        <p class="lead">Calcular tu IMC te ayuda a evaluar tu composición corporal y determinar si estás
+                            en un rango saludable de peso en relación con tu altura.</p>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <h3>Aspectos a considerar:</h3>
+                        <ul class="list-unstyled">
+                            <li><strong>Indicador de salud:</strong> El IMC es un indicador utilizado para evaluar el
+                                riesgo de enfermedades relacionadas con el peso, como la obesidad y la diabetes.</li>
+                            <li><strong>Información sobre peso:</strong> Conocer tu IMC te brinda información sobre tu
+                                peso corporal en relación con tu altura, lo que puede ser útil para establecer metas de
+                                pérdida o ganancia de peso.</li>
+                            <li><strong>Seguimiento de la salud:</strong> Calcular tu IMC regularmente te permite
+                                realizar un seguimiento de tu salud y ajustar tus hábitos alimenticios y de ejercicio
+                                según sea necesario.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="altura">Altura (m):</label>
+                    <input type="number" id="altura" min="0" step="0.01" class="form-control mb-2" placeholder="0.00">
+                    <label for="pesoIMC">Peso (kg):</label>
+                    <input type="number" id="pesoIMC" min="0" step="0.01" class="form-control mb-2" placeholder="0.00">
+                    <button onclick="calcularIMC()" class="btn btn-primary">Calcular</button>
+                    <div id="resultadoIMCContainer" class="mt-3">Tu IMC es:</div>
+                </div>
+            </div>
         </div>
 
-        <button class="accordion btn btn-light mt-3">IMC (Indice de Masa Corporal)</button>
+        <button class="accordion btn btn-light mt-3">Calculadora de Calorías Diarias</button>
         <div class="panel">
-            <label for="altura">Altura (m):</label>
-            <input type="number" id="altura" min="0" class="form-control mb-2">
-            <label for="pesoIMC">Peso (kg):</label>
-            <input type="number" id="pesoIMC" min="0" class="form-control mb-2">
-            <button onclick="calcularIMC()" class="btn btn-primary">Calcular</button>
-            <div id="resultadoIMCContainer" class="mt-3"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-center mb-4">
+                        <h2>Calculadora de Calorías Diarias</h2>
+                        <p class="lead">Calcula tu ingesta diaria de calorías según tu género, peso, altura y frecuencia
+                            de entrenamiento.</p>
+                    </div>
+                    <hr>
+                    <div class="text-center mb-4">
+                        <h3>Aspectos a considerar</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <label for="genero">Género:</label>
+                        <select id="genero" class="form-control mb-2">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                        <label for="edadCalorias">Edad:</label>
+                        <input type="number" id="edadCalorias" min="0" step="0.01" class="form-control mb-2"
+                            placeholder="">
+                        <label for="pesoCalorias">Peso (kg):</label>
+                        <input type="number" id="pesoCalorias" min="0" step="0.01" class="form-control mb-2"
+                            placeholder="0.00">
+                        <label for="alturaCalorias">Altura (m):</label>
+                        <input type="number" id="alturaCalorias" min="0" step="0.01" class="form-control mb-2"
+                            placeholder="0.00">
+                        <label for="frecuenciaEntrenamiento">Frecuencia de entrenamiento:</label>
+                        <select id="frecuenciaEntrenamiento" class="form-control mb-2">
+                            <option value="sedentario">Sedentario</option>
+                            <option value="ligero">Ligero (1-3 días por semana)</option>
+                            <option value="moderado">Moderado (3-5 días por semana)</option>
+                            <option value="activo">Activo (6-7 días por semana)</option>
+                            <option value="muyActivo">Muy activo (2 veces al día, entrenamiento intenso)</option>
+                        </select>
+                        <button onclick="calcularCaloriasDiarias()" class="btn btn-primary">Calcular</button>
+                        <div id="resultadoCaloriasContainer" class="mt-3">Tu ingesta diaria de calorías es:</div>
+                        <br>
+                    </div>    
+                </div>
+            </div>
         </div>
     </main>
-    <footer>
-        <!-- Pie de página aquí -->
+    <br>
+    <footer class="bg-dark text-light text-center py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; 2024 Train To Win<span class="text-danger">&reg;</span>. Todos los derechos
+                        reservados.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="list-inline social-icons">
+                        <li class="list-inline-item"><a href="https://instagram.com/ep_traintowin" target="_blank"><i
+                                    class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="mailto:info.roberto.fitness@gmail.com"><i
+                                    class="fa-regular fa-envelope"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Bootstrap JS (optional) -->
+    <!-- Bootstrap JS (opcional) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Función para inicializar el acordeón
         document.addEventListener('DOMContentLoaded', function () {
             var acc = document.querySelectorAll(".accordion");
 
@@ -109,25 +338,93 @@
             });
         });
 
+        // Función para calcular 1RM
         function calcular1RM() {
             var peso = parseFloat(document.getElementById("peso").value);
             var repeticiones = parseFloat(document.getElementById("repeticiones").value);
-            var resultado = peso * (1 + (repeticiones / 30));
-            document.getElementById("resultado1RMContainer").innerHTML = "<p class='text-success'>Tu 1RM estimada es: " + resultado.toFixed(2) + " kg</p>";
+            if (!isNaN(peso) && !isNaN(repeticiones)) {
+                var resultado = (peso * 0.033 * repeticiones) + peso;
+                document.getElementById("resultado1RMContainer").innerHTML = "<p class='text-success'>Tu 1RM estimada es: " + resultado.toFixed(2) + " kg</p>";
+            } else {
+                alert("Por favor, introduce valores válidos para peso y repeticiones.");
+            }
         }
 
-        function calcularVO2max() {
+        // Función para calcular el ritmo de carrera
+        function calcularRitmoCarrera() {
             var distancia = parseFloat(document.getElementById("distancia").value);
             var tiempo = parseFloat(document.getElementById("tiempo").value);
-            var resultado = (distancia / tiempo) * 3.5 + 48.5;
-            document.getElementById("resultadoVO2maxContainer").innerHTML = "<p class='text-success'>Tu VO2max estimado es: " + resultado.toFixed(2) + " ml/kg/min</p>";
+            if (!isNaN(distancia) && !isNaN(tiempo) && tiempo !== 0) {
+                var ritmo = tiempo / distancia;
+                var minutos = Math.floor(ritmo);
+                var segundos = Math.round((ritmo - minutos) * 60);
+                document.getElementById("resultadoRitmoCarreraContainer").innerHTML = "<p class='text-success'>Tu ritmo de carrera es: " + minutos + " minutos y " + segundos + " segundos por kilómetro.</p>";
+            } else {
+                alert("Por favor, introduce valores válidos para distancia y tiempo (tiempo debe ser distinto de cero).");
+            }
         }
 
+        // Función para calcular IMC
         function calcularIMC() {
             var altura = parseFloat(document.getElementById("altura").value);
             var peso = parseFloat(document.getElementById("pesoIMC").value);
-            var resultado = peso / (altura * altura);
-            document.getElementById("resultadoIMCContainer").innerHTML = "<p class='text-success'>Tu IMC es: " + resultado.toFixed(2) + "</p>";
+            if (!isNaN(altura) && !isNaN(peso) && altura !== 0) {
+                var resultado = peso / (altura * altura);
+                document.getElementById("resultadoIMCContainer").innerHTML = "<p class='text-success'>Tu IMC es: " + resultado.toFixed(2) + "</p>";
+            } else {
+                alert("Por favor, introduce valores válidos para altura y peso (altura debe ser distinta de cero).");
+            }
+        }
+
+        // Función calculo VO2max
+        // Función para calcular VO2max (Test de Cooper)
+        function calcularVO2max() {
+            var distanciaCooper = parseFloat(document.getElementById("distanciaCooper").value);
+            if (!isNaN(distanciaCooper)) {
+                var VO2max = (distanciaCooper - 504.9) / 44.73;
+                document.getElementById("resultadoVO2maxContainer").innerHTML = "<p class='text-success'>Tu VO2max estimado es: " + VO2max.toFixed(2) + " ml/kg/min</p>";
+            } else {
+                alert("Por favor, introduce un valor válido para la distancia recorrida en 12 minutos.");
+            }
+        }
+
+        function calcularCaloriasDiarias() {
+            var genero = document.getElementById("genero").value;
+            var peso = parseFloat(document.getElementById("pesoCalorias").value);
+            var altura = parseFloat(document.getElementById("alturaCalorias").value);
+            var frecuenciaEntrenamiento = document.getElementById("frecuenciaEntrenamiento").value;
+            var edadCal = parseFloat(document.getElementById("edadCalorias").value)
+
+            if (!isNaN(peso) && !isNaN(altura)) {
+                var factorActividad = 1.2; // Factor por defecto para sedentario
+                switch (frecuenciaEntrenamiento) {
+                    case "ligero":
+                        factorActividad = 1.375;
+                        break;
+                    case "moderado":
+                        factorActividad = 1.55;
+                        break;
+                    case "activo":
+                        factorActividad = 1.725;
+                        break;
+                    case "muyActivo":
+                        factorActividad = 1.9;
+                        break;
+                    default:
+                        factorActividad = 1.2;
+                }
+
+                var caloriasDiarias;
+                if (genero === "masculino") {
+                    caloriasDiarias = (88.362 + (13.397 * peso) + (4.799 * altura * 100) - (5.677 * edadCal)) * factorActividad;
+                } else {
+                    caloriasDiarias = (447.593 + (9.247 * peso) + (3.098 * altura * 100) - (4.330 * edadCal)) * factorActividad;
+                }
+
+                document.getElementById("resultadoCaloriasContainer").innerHTML = "<p class='text-success'>Tu ingesta diaria de calorías es: " + caloriasDiarias.toFixed(2) + " Kcal</p>";
+            } else {
+                alert("Por favor, introduce valores válidos para peso y altura.");
+            }
         }
     </script>
 </body>
